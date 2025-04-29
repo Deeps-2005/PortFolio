@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deepak M | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <style>
+    #loading-spinner {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .nav-link.active {
+      border-bottom: 2px solid #4f46e5;
+    }
+    .shadow-outline {
+      box-shadow: 2px 2px 0px 0px #000;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-all duration-300">
+
+<!-- Loading Spinner -->
+<div id="loading-spinner">
+  <div class="border-8 border-blue-500 border-t-transparent rounded-full w-16 h-16 animate-spin"></div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full hidden hover:bg-blue-800 z-50">
+  ⬆️
+</button>
+
+<!-- Navbar -->
+<nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-20">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <h1 class="font-bold text-xl">Portfolio</h1>
+    <!-- Desktop Menu -->
+    <div id="navbar-links" class="space-x-6 hidden md:flex items-center">
+      <button data-page="home" class="nav-btn hover:text-blue-500 font-medium">Home</button>
+      <button data-page="about" class="nav-btn hover:text-blue-500 font-medium">About</button>
+      <button data-page="skills" class="nav-btn hover:text-blue-500 font-medium">Skills</button>
+      <button data-page="projects" class="nav-btn hover:text-blue-500 font-medium">Projects</button>
+      <button data-page="timeline" class="nav-btn hover:text-blue-500 font-medium">Timeline</button>
+      <button data-page="contact" class="nav-btn hover:text-blue-500 font-medium">Contact</button>
+      <button id="theme-toggle" class="ml-4 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">🌓</button>
+    </div>
+    <!-- Hamburger for Mobile -->
+    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-md p-4">
+    <div class="flex flex-col space-y-4">
+      <button data-page="home" class="nav-btn hover:text-blue-500 text-left">Home</button>
+      <button data-page="about" class="nav-btn hover:text-blue-500 text-left">About</button>
+      <button data-page="skills" class="nav-btn hover:text-blue-500 text-left">Skills</button>
+      <button data-page="projects" class="nav-btn hover:text-blue-500 text-left">Projects</button>
+      <button data-page="timeline" class="nav-btn hover:text-blue-500 text-left">Timeline</button>
+      <button data-page="contact" class="nav-btn hover:text-blue-500 text-left">Contact</button>
+      <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition w-max">🌓</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="pt-16">
+
+  <!-- Home Section - NEW -->
+  <section id="page-home" class="page-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" data-aos="fade-up">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-center text-indigo-700 dark:text-indigo-300 mb-2">Deepak M</h1>
+    <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 mb-8 text-center">BE CSE ENGINEERING</p>
+    
+    <!-- Navigation Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+      <button data-page="about" class="nav-btn px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-lg text-gray-800 dark:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:border-indigo-400 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-300 transform hover:-translate-y-1 hover:scale-105 shadow-sm">About Me</button>
+      <button data-page="skills" class="nav-btn px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-lg text-gray-800 dark:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:border-indigo-400 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-300 transform hover:-translate-y-1 hover:scale-105 shadow-sm">Skills</button>
+      <button data-page="projects" class="nav-btn px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-lg text-gray-800 dark:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:border-indigo-400 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-300 transform hover:-translate-y-1 hover:scale-105 shadow-sm">Projects</button>
+      <button data-page="timeline" class="nav-btn px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-lg text-gray-800 dark:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:border-indigo-400 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-300 transform hover:-translate-y-1 hover:scale-105 shadow-sm">Experience</button>
+      <button data-page="contact" class="nav-btn px-6 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-lg text-gray-800 dark:text-gray-100 hover:bg-indigo-50 dark:hover:bg-gray-700 hover:border-indigo-400 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-300 transform hover:-translate-y-1 hover:scale-105 shadow-sm">Contact</button>
+    </div>
+    
+    
+    <!-- Social Icons -->
+    <div class="flex gap-6 mt-2">
+      <a href="https://github.com/Deeps-2005" target="_blank" class="bg-white dark:bg-gray-800 rounded-full shadow p-3 hover:bg-indigo-50 dark:hover:bg-gray-700 transition" aria-label="GitHub">
+        <svg class="w-7 h-7 text-gray-800 dark:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.371 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.042-1.611-4.042-1.611-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.76-1.604-2.665-.304-5.466-1.332-5.466-5.931 0-1.309.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.958-.266 1.984-.399 3.004-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.814 1.104.814 2.222 0 1.606-.014 2.898-.014 3.292 0 .319.216.694.825.576C20.565 21.796 24 17.299 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/deepak-mathavan" target="_blank" class="bg-white dark:bg-gray-800 rounded-full shadow p-3 hover:bg-indigo-50 dark:hover:bg-gray-700 transition" aria-label="LinkedIn">
+        <svg class="w-7 h-7 text-blue-700" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="mailto:deepak2210568@ssn.edu.in" class="bg-white dark:bg-gray-800 rounded-full shadow p-3 hover:bg-indigo-50 dark:hover:bg-gray-700 transition" aria-label="Email">
+        <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="page-about" class="page-section min-h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left px-4 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-900 hidden" data-aos="fade-up">
+    <!-- Photo -->
+    <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-10">
+      <!-- Replace with your photo URL -->
+      <img src="PASSPORT IMAGE.jpeg" alt="Deepak M" class="w-40 h-40 rounded-full shadow-lg border-4 border-blue-400 object-cover">
+    </div>
+    <!-- Bio -->
+    <div>
+      <h2 class="text-5xl font-extrabold mb-4 text-blue-700 dark:text-blue-300">Hi, I'm Deepak 👋</h2>
+      <p class="max-w-xl text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+        I'm a Computer Science student passionate about <span class="font-semibold text-blue-500">Machine Learning</span>, <span class="font-semibold text-purple-500">Full Stack Development</span>, and <span class="font-semibold text-pink-500">AI</span>. I love building scalable apps and solving real-world problems through technology.<br>
+        <span class="italic text-base text-gray-500 dark:text-gray-400">Curious mind. Lifelong learner. Coffee enthusiast.</span>
+      </p>
+      <!-- AI/ML-Focused Summary -->
+      <p class="max-w-xl text-base leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+        As a passionate Computer Science student specializing in Artificial Intelligence and Machine Learning, I have developed a strong foundation in both the theoretical and practical aspects of intelligent systems. My expertise spans Python, Java, C, C++, and frameworks like ReactJS, Node.js, and Express.js. I am adept at leveraging these tools to build scalable, data-driven applications that address real-world challenges.
+      </p>
+      <!-- Quick facts -->
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-6">
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm">📍 Chennai, India</span>
+        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm">🎓 SSN College of Engineering</span>
+        <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm">💡 Always learning</span>
+      </div>
+      <!-- CTA Button -->
+      <button data-page="contact" class="nav-btn inline-block mt-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 transition">Let's Connect!</button>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="page-skills" class="page-section py-16 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 hidden" data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-center mb-12">Skills</h3>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Languages</h4>
+        <p>Python, C, C++, Java</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Frontend</h4>
+        <p>HTML, CSS, JavaScript, ReactJS</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Backend</h4>
+        <p>Node.js, Express.js</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Databases</h4>
+        <p>MySQL, OracleSQL, MongoDB</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">ML/AI</h4>
+        <p>Scikit-Learn, NumPy, Pandas, TensorFlow, Matplotlib</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Tools & APIs</h4>
+        <p>Git, GitHub, VS Code, Postman, REST APIs, Docker</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transition-all text-center">
+        <h4 class="text-xl font-bold mb-2">Soft Skills</h4>
+        <p>Teamwork, Communication, Leadership</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="page-projects" class="page-section py-16 px-6 bg-gray-50 dark:bg-gray-900 hidden" data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-center mb-10">Projects</h3>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">Sentiment Analysis Dashboard</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">Streamlit app classifying Amazon reviews using ML, GCP, Docker.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+          <span class="bg-teal-100 text-teal-800 text-xs px-3 py-1 rounded-full">Streamlit</span>
+          <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Docker</span>
+          <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">GCP</span>
+        </div>
+        <a href="https://github.com/Deeps-2005/sentiment_analysis" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View on GitHub 🔗</a>
+      </div>
+
+      <!-- NEW: Stock Prediction Project -->
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">Stock Price Prediction System</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">Machine Learning-based project to predict stock market prices using historical data. Helps users make informed investment decisions with data visualization and forecasting.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+          <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Scikit-Learn</span>
+          <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Pandas</span>
+          <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">NumPy</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Matplotlib</span>
+          <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">yfinance</span>
+        </div>
+        <a href="https://github.com/Deeps-2005/StockPrediction" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View on GitHub 🔗</a>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">Library Management System</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">Library system with OracleSQL backend and Java frontend.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">OracleSQL</span>
+          <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Java</span>
+          <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Apache Netbeans</span>
+        </div>
+        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View Project 🔗</a>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">MOUTracker</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">Automated MOU Management system using React, Node.js and Express API handling.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">React</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Express API</span>
+          <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Excel</span>
+        </div>
+        <a href="https://github.com/Deeps-2005/MOUTracker" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View on GitHub 🔗</a>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">AI Tile Matching Memory Game</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">AI game built with Godot engine and Python backend logic.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Python</span>
+          <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Godot Engine</span>
+        </div>
+        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View Project 🔗</a>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition">
+        <h4 class="text-xl font-bold mb-2">Travel Booking System</h4>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">Android-based booking system using Java and DB.</p>
+        <div class="flex flex-wrap gap-2 mb-3">
+          <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Java</span>
+          <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Android Studio</span>
+        </div>
+        <a href="#" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">View Project 🔗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="page-timeline" class="page-section py-16 bg-gray-50 dark:bg-gray-900 hidden" data-aos="fade-up">
+    <h3 class="text-3xl font-semibold text-center mb-12">Education</h3>
+    <div class="max-w-3xl mx-auto relative">
+      <div class="border-l-4 border-blue-500 dark:border-blue-400 pl-6 space-y-10">
+        <div>
+          <h4 class="text-xl font-bold">B.E. Computer Science</h4>
+          <p class="text-gray-600 dark:text-gray-400">SSN College of Engineering (2022–2026)</p>
+          <p class="text-gray-600 dark:text-gray-400">CGPA: 7.939</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="text-3xl font-semibold text-center mb-12 mt-16">Certificates</h3>
+    <div class="max-w-3xl mx-auto relative">
+      <div class="border-l-4 border-blue-500 dark:border-blue-400 pl-6 space-y-10">
+        <div>
+          <h4 class="text-xl font-bold">NPTEL: Privacy & Security in Online Social Media</h4>
+          <p class="text-gray-600 dark:text-gray-400">Completed with 76% Score</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Updated to match reference -->
+  <section id="page-contact" class="page-section hidden bg-white dark:bg-gray-800 py-16" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-4xl font-bold mb-12 text-center">Let's Connect</h2>
+      
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Contact Info Column -->
+        <div class="space-y-10">
+          <!-- Email -->
+          <div class="flex items-center">
+            <div class="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Email</h3>
+              <a href="mailto:deepak2210568@ssn.edu.in" class="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">deepak2210568@ssn.edu.in</a>
+            </div>
+          </div>
+          
+          <!-- Phone -->
+          <div class="flex items-center">
+            <div class="bg-green-100 dark:bg-green-900/30 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Phone</h3>
+              <p class="text-gray-600 dark:text-gray-400">+91 96000 23509</p>
+            </div>
+          </div>
+          
+          <!-- Location -->
+          <div class="flex items-center">
+            <div class="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Location</h3>
+              <p class="text-gray-600 dark:text-gray-400">Tamil Nadu, Chennai</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Links Column -->
+        <div>
+          <h3 class="text-2xl font-semibold mb-6">Social Links</h3>
+          
+          <!-- GitHub -->
+          <a href="https://github.com/Deeps-2005" target="_blank" 
+             class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg mb-4 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub Profile
+          </a>
+          
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/deepak-mathavan" target="_blank" 
+             class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg mb-4 hover:bg-gray-100 dark:hover:bg-gray-600 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            LinkedIn Profile
+          </a>
+          
+          <!-- Resume Button -->
+          <a href="resume.pdf" download 
+             class="block w-full bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-800/50 text-blue-700 dark:text-blue-300 text-center py-4 px-6 rounded-lg mb-8 transition">
+            Download Resume
+          </a>
+          
+          <!-- Available for Opportunities -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-3">Available for Opportunities</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              I am eager to do an internship in a company that provides a good learning environment and opportunities for growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center text-gray-500 dark:text-gray-400 p-6">
+  © 2025 Deepak M. All Rights Reserved.
+</footer>
+
+<script>
+  // AOS Animation
+  AOS.init();
+
+  // Loading Spinner
+  window.addEventListener('load', () => {
+    document.getElementById('loading-spinner').style.display = 'none';
+  });
+
+  // Scroll to Top Button
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  window.onscroll = () => {
+    if (window.scrollY > 100) scrollToTopBtn.style.display = "block";
+    else scrollToTopBtn.style.display = "none";
+  };
+  scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Navbar Mobile Menu
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  mobileMenuButton.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  // Theme Toggle (Desktop and Mobile)
+  function setTheme(dark) {
+    if (dark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+  // On load, set theme from storage
+  if (localStorage.getItem('theme') === 'dark') setTheme(true);
+
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    setTheme(!document.documentElement.classList.contains('dark'));
+  });
+  document.getElementById('theme-toggle-mobile').addEventListener('click', () => {
+    setTheme(!document.documentElement.classList.contains('dark'));
+  });
+
+  // SPA-like Navigation
+  function showPage(page) {
+    document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+    document.getElementById('page-' + page).classList.remove('hidden');
+    // Highlight current nav
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.classList.remove('text-blue-500', 'font-bold', 'active', 'border-b-2', 'border-indigo-500');
+      if (btn.getAttribute('data-page') === page) {
+        btn.classList.add('text-blue-500', 'font-bold');
+        if (window.innerWidth >= 768) { // Only add the border for desktop view
+          btn.classList.add('active');
+        }
+      }
+    });
+    // Close mobile menu after click
+    if (!mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Update URL hash
+    history.replaceState(null, '', '#' + page);
+  }
+
+  // Set up nav button listeners
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showPage(btn.getAttribute('data-page'));
+    });
+  });
+
+  // On load, show correct page based on hash
+  function initialPage() {
+    const hash = window.location.hash.replace('#','');
+    const validPages = ['home','about','skills','projects','timeline','contact'];
+    if (validPages.includes(hash)) {
+      showPage(hash);
+    } else {
+      showPage('home'); // Default to home
+    }
+  }
+  window.addEventListener('hashchange', initialPage);
+  initialPage();
+
+// If you dynamically add nav-btns later, call attachNavBtnListeners() again.
+
+</script>
+</body>
+</html>
